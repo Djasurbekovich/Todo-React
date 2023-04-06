@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+
+.section-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.grocery-title{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: green;
+}
+.grocery-form{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.grocery{
+    width: 300px;
+    height: 40px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.7px;
+    color: green;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding-left: 15px;
+}
+.grocery::placeholder{
+    color: green;
+    opacity: 0.7;
+}
+.grocery:focus{
+    box-shadow: 1px 1px 10px green;
+}
+.grocery-btn{
+    width: 100px;
+    height: 45px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: normal;
+    color: white;
+    background-color: limegreen;
+    border: 2px solid green;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.grocery-btn:hover{
+    background-color: green;
+}
+.grocery-btn:active{
+    box-shadow: 1px 1px 10px green;
+}
+.grocery-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.grocery-text{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: normal;
+    color: green;
+}
+.grocery-del{
+    width: 100px;
+    height: 45px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    color: white;
+    background-color: red;
+    border: 2px solid darkred;
+    border-radius: 5px;
+}
+.grocery-del:hover{
+    background-color: darkred;
+}
+.grocery-del:active{
+    box-shadow: 1px 1px 10px darkred;
+}
