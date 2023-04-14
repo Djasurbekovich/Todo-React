@@ -1,78 +1,76 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-import './App.css';
-
-
+import { useEffect } from "react";
+import { useState } from "react";
+import { IoTrashBin } from "react-icons/io5";
+import "./App.css";
 
 const getLocalStorage = () => {
-  return localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : []
-}
+  return localStorage.getItem("list")
+    ? JSON.parse(localStorage.getItem("list"))
+    : [];
+};
 
 function App() {
-
   const [list, setList] = useState(getLocalStorage());
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) {
-      console.log('inputga yoz');
+      console.log("inputga yoz");
     } else if (name && isEditing) {
-      console.log('ozgardi');
+      console.log("ozgardi");
     } else {
       const newItem = { id: new Date().getTime().toString(), value: name };
-      setList([...list, newItem])
-      setName('')
+      setList([...list, newItem]);
+      setName("");
     }
-  }
+  };
 
   const removeItem = (id) => {
-    const newItem = list.filter((item) => item.id !== id)
-    setList(newItem)
-  }
-
-  
+    const newItem = list.filter((item) => item.id !== id);
+    setList(newItem);
+  };
 
   useEffect(() => {
-    localStorage.setItem('list', JSON.stringify(list))
+    localStorage.setItem("list", JSON.stringify(list));
   }, [list]);
 
-
-  
   return (
     <div>
-      <section className='section-center'>
-        <h1 className='grocery-title'>Todo-React</h1>
-        <form action="" className='grocery-form' onSubmit={handleSubmit}>
+      <section className="section-center">
+        <h1 className="grocery-title">Todo-React</h1>
+        <form action="" className="grocery-form" onSubmit={handleSubmit}>
           <input
             type="text"
-            className='grocery'
-            placeholder='todo'
+            className="grocery"
+            placeholder="todo"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <button className='grocery-btn'>add</button>
+          <button className="grocery-btn">add</button>
         </form>
       </section>
       <div>
         {list.map((todo) => {
           return (
-            <div className='grocery-box' key={todo.id}>
-              <p className='grocery-text'>{todo.value}</p>
-              <button className='grocery-del' onClick={() => removeItem(todo.id)}>delete</button>
+            <div className="grocery-box" key={todo.id}>
+              <p className="grocery-text">{todo.value}</p>
+              <button
+                className="grocery-del"
+                onClick={() => removeItem(todo.id)}>
+                <IoTrashBin />
+              </button>
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }
 
-export default App
-
-
+export default App;
 
 // import createGlobe from "cobe";
 // import { useEffect, useRef } from "react";
